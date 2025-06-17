@@ -27,3 +27,18 @@ A Dockerized load balancer that distributes incoming HTTP requests to backend se
     ├── Dockerfile           
     ├── loadbalancer.py       
     └── hash_map.py      
+
+
+---
+## Clone the repository: 
+git clone https://github.com/yourusername/load_balancer_project.git
+cd load_balancer_project
+
+## Build the project:
+docker compose build
+docker compose up
+
+## Access the load balancer:
+http://localhost:5000
+
+---
