@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import random, os, time
 import docker
-from loadbalancer.hash_map import ConsistentHashMap
+from hash_map import ConsistentHashMap
 
 app = Flask(__name__)
 client = docker.from_env()
