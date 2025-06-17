@@ -31,14 +31,19 @@ A Dockerized load balancer that distributes incoming HTTP requests to backend se
 
 ---
 ## Clone the repository: 
+```bash
 git clone https://github.com/yourusername/load_balancer_project.git
 cd load_balancer_project
+```
 
 ## Build the project:
+```bash
 docker compose build
 docker compose up
+```
 
 ## Access the load balancer:
+```bash
 http://localhost:5000
-
+```
 ---
