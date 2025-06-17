@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 import random, os, time
 import docker
-from hash_map import ConsistentHashMap
+from hash_map import ConsistentHashRing
 
 app = Flask(__name__)
 client = docker.from_env()
 
-hash_map = ConsistentHashMap(num_slots=512)
+hash_map = ConsistentHashRing(num_slots=512, replicas=9)
 N = 3
 virtual_nodes = 9
 
