@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import random, os, time
+import random, os, time, uuid
 import docker
 from hash_map import ConsistentHashRing
 
@@ -15,7 +15,8 @@ SERVER_IMAGE = "myserver:latest"
 servers = {}
 
 def generate_server_name():
-    return f"Server_{random.randint(1000, 9999)}"
+    unique_suffix = str(uuid.uuid4())[:8]
+    return f"Server_{unique_suffix}"
 
 def spawn_server(name):
     container = client.containers.run(
@@ -114,10 +115,10 @@ def route_request(path):
             "message": f"Error routing request: {str(e)}",
             "status": "failure"
         })
-    
+
 def initialise():
     for i in range(N):
-        spawn_server(f"Server_{i+1}")
+        spawn_server(generate_server_name())
 
 if __name__ == '__main__':
     time.sleep(3)
