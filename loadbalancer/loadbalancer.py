@@ -100,7 +100,7 @@ def remove_replicas():
 @app.route('/<path:path>', methods=['GET'])
 def route_request(path):
     request_id = random.randint(100000, 999999)
-    target = hash_map.get_server(request_id)
+    target = hash_map.get_server(str(request_id))
 
     if not target or target not in servers:
         return jsonify({
