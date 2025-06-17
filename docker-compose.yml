@@ -15,4 +15,4 @@ services:
 
 networks:
   net1:
-    external: true
+    driver: bridge
