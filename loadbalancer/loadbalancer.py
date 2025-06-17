@@ -6,7 +6,7 @@ from hash_map import ConsistentHashRing
 app = Flask(__name__)
 client = docker.from_env()
 
-hash_map = ConsistentHashRing(num_slots=512, replicas=9)
+hash_map = ConsistentHashRing(slots=512, replicas=9)
 N = 3
 virtual_nodes = 9
 
