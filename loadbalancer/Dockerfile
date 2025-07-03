@@ -1,13 +1,7 @@
 FROM python:3.9-slim
-
 WORKDIR /app
-
-COPY loadbalancer.py .
-COPY hash_map.py .
-
-# Install Flask and Docker SDK (to spawn/remove containers)
-RUN pip install flask docker
-
+COPY . .
+RUN pip install flask requests
 EXPOSE 5000
+CMD ["python", "balancer.py"]
 
-CMD ["python", "loadbalancer.py"]
