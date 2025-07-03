@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Load Balancer Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+
+    #error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Load Balancer Request Demo</h1>
+  <p>Click the button below to send a request to the load balancer.</p>
+  <button onclick="callServer()">Send Request</button>
+  <p id="result"></p>
+
+  <script>
+    function callServer() {
+      document.getElementById("result").innerText = "Waiting for response...";
+      fetch("http://localhost:5000/home")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Server error");
+          }
+          return response.json();
+        })
+        .then(data => {
+          document.getElementById("result").innerText = data.message;
+        })
+        .catch(error => {
+          document.getElementById("result").innerText = "Error contacting load balancer.";
+          document.getElementById("result").style.color = "red";
+        });
+    }
+  </script>
+</body>
+</html>
