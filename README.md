@@ -46,6 +46,6 @@ http://localhost:8000/client.html
 ## Test the Distribution Script
 ```bash
 cd client
-python3 test_distribution.py
+python3 demo_distribution.py
 ```
 ---
