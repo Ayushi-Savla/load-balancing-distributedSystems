@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import requests
 import subprocess
 import os
 from consistent_hash import ConsistentHash
 
+
 app = Flask(__name__)
+CORS(app)
 hash_map = ConsistentHash()
 replicas = ["Server1", "Server2", "Server3"]
 for r in replicas:
