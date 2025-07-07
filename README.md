@@ -1,8 +1,18 @@
 # Consistent Hashing Load Balancer
 
-This is our semester project for the Distributed Systems Unit
 
----
+## Overview
+
+This project implements a customizable load balancer using **consistent hashing** to evenly distribute client requests across multiple backend servers. 
+
+The system consists of:
+- A **Load Balancer** that receives client requests and distributes them.
+- Multiple **replicated backend servers**.
+- A **consistent hashing algorithm** to ensure even and fault-tolerant load distribution.
+- Support for **dynamic scaling** by adding/removing server replicas.
+
+The project demonstrates core distributed systems concepts like fault tolerance, scalability, container orchestration, and hashing-based load balancing.
+
 
 
 ## Project Structure
@@ -49,3 +59,16 @@ cd client
 python3 demo_distribution.py
 ```
 ---
+## Dependencies
+
+Ensure the following are installed:
+
+- Docker (version 20.10.23+)
+- Docker Compose
+- Python 3.8+
+- `requests` and `matplotlib` libraries for testing and plotting
+
+Install Python dependencies (for testing scripts):
+
+```bash
+pip install -r requirements.txt
