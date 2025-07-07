@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-import requests
-import subprocess
+from flask import Flask, request, jsonify  # Flask for web server, request/jsonify for API
+from flask_cors import CORS   # For enabling Cross-Origin Resource Sharing
+import requests           # To forward client requests to backend server
+import subprocess     # To run shell commands (for managing Docker containers)
 import os
 from consistent_hash import ConsistentHash
 
@@ -58,6 +58,7 @@ def forward(endpoint):
     client_id = random.randint(100000, 999999)
     server = hash_map.get_server(client_id)
     try:
+        # Pick the server using consistent hash based on request path
         r = requests.get(f'http://{server}:5000/{endpoint}')
         return r.content, r.status_code
     except:
