@@ -72,3 +72,13 @@ Install Python dependencies (for testing scripts):
 
 ```bash
 pip install -r requirements.txt
+
+```
+---
+## Screenshots
+![image](https://github.com/user-attachments/assets/c47d7724-75e3-47ca-980f-975acf41fbbd)
+![image](https://github.com/user-attachments/assets/e2b7672f-2fd9-45f0-8723-1e7a24e668ab)
+![image](https://github.com/user-attachments/assets/86175407-0086-4143-a889-8d41f07ae44c)
+
+
+
